@@ -1,0 +1,31 @@
+
+.cardalignment{
+    display: flex;
+    justify-content:space-around;
+    width:100%;
+    flex-wrap: wrap;
+ 
+}
+
+.storytext{
+    display:flex ;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+.storytext p{
+    font-size:1.5rem;
+    font-weight: bold;
+    font-family:DM Sans
+}
+
+.seemorebtn{
+  font-size: 1rem;
+  width:8rem;
+  height:2rem;
+  background-color:#FF7373;
+  font-weight: bold;
+  color:white;
+  border-radius: 20px;
+  border:none
+}

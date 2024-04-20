@@ -1,0 +1,28 @@
+
+.wrapper{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+
+.storycard{
+ position: relative;
+  width:14rem;
+  height: 20rem;
+  display: flex;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 1.75rem;
+  color: black;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  display: flex;
+}
+.content{
+ position: absolute;
+  bottom:0;
+}
+.content p{
+    color:white;
+}

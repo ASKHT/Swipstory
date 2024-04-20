@@ -1,0 +1,32 @@
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 1rem;
+  overflow-x: hidden;
+  font-family: DM Sans;
+}
+
+.category {
+  width: 9.4%;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1.75rem;
+  margin-top: 2rem;
+  color: white;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  
+}

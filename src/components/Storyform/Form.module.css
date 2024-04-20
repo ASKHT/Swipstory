@@ -1,0 +1,25 @@
+.wrapper{
+    /* padding-left:2rem; */
+    display: flex;
+    flex-direction: column;
+     gap:0.8rem;
+     padding-top: 2rem;
+     font-size: 17px;
+     font-family: "DM Sans";
+     font-weight: bold;
+
+}
+.input{
+    width:15rem;
+    height:2rem;
+    border:2px solid gray;
+    outline:none;
+    border-radius: 4px;
+}
+.input1{
+    width:15rem;
+    height:8rem;
+    border: 2px solid gray;
+    outline:none;
+    resize: none;
+}

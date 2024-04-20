@@ -1,0 +1,73 @@
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #212121;
+ 
+}
+.innercontainer{
+  width:auto;
+  height:auto;
+ box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+ background-color: white;
+ padding:1rem;
+ border-radius:1rem;
+
+}
+
+.slidenumber{
+    width:6rem;
+    height:2.5rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family:"DM Sans"
+}
+.layout{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+
+}
+.crossbtn{
+    width:1rem;
+    height:1rem;
+    border-radius:50%;
+    border:1px solid red;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    color:red;
+}
+.btn1{
+    width:6rem;
+    height:2rem;
+    background-color:#7EFF73;
+    color:white;
+    border-radius:0.9rem;
+    border:none
+}
+.btn2{
+      width:6rem;
+    height:2rem;
+    background-color:#73ABFF;
+    color:white;
+    border-radius:0.9rem;
+    border:none;
+}
+.btn3{
+      width:6rem;
+    height:2rem;
+    background-color:#FF7373;
+    color:white;
+    border-radius:0.9rem;
+    border:none
+}
