@@ -19,7 +19,7 @@ const Form = () => {
                 className={styles.input1}
                 />
            </div>
-           <div  style={{display:"flex",justifyContent:"space-around",width:"32rem",alignItems:"center"}}>
+           <div  style={{display:"flex",justifyContent:"space-around",width:"32.5rem",alignItems:"center"}}>
                 <label htmlFor="imageurl">Image:</label>
                 <input 
                 type="text" 

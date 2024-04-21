@@ -67,6 +67,7 @@ const Register = ({ setShowModal }) => {
                         )}
                     </div>
                 </div>
+                  
                 <button type="submit" className={styles.button}>
                     Login
                 </button>

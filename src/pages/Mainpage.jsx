@@ -4,6 +4,7 @@ import Register from "../components/Authmodal/Registermodal"
 import Header from "../components/Header/Header"
 import Category from '../components/Category/Category'
 import { useState } from 'react'
+import Storyform from '../components/Storyform/Storyform'
 const Mainpage = () => {
        const [showModal, setShowModal] = useState("");
   return (
@@ -12,6 +13,7 @@ const Mainpage = () => {
             <Category />
             {showModal === "register" && <Register setShowModal={setShowModal} />}
             {showModal === "login" && <Login setShowModal={setShowModal} />}
+           
     </div>
   )
 }

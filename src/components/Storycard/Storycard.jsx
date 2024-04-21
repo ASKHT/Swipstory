@@ -5,7 +5,7 @@ const Storycard = ({img}) => {
   return (
     
          <div className={styles.wrapper}>
-                <div className={styles.storycard} style=                 {{backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(${img}) `}}>
+                <div className={styles.storycard} style=                 {{backgroundImage:`url(${img}) `}}>
                       <div className={styles.content}>
                           <p>Text story</p>
                           <p>why are we texting like we all are </p>
