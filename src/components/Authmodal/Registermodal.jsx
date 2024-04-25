@@ -1,40 +1,50 @@
 import styles from "./common.module.css";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-
+import { registerUserAction } from "../../redux/features/AuthSlice";
 const Register = ({ setShowModal }) => {
     const [password,Setshowpassword] = useState(false);
-
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.auth.data);
+    const  [showerror,Setshowerror]=useState("")
     const [formvalue, Setformvalue] = useState({
-        email: "",
-        password: "",
+        username:'',
+        password:''
     });
 
     const handleChange = (e) => {
         Setformvalue({ ...formvalue, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        if (!formvalue.username||!formvalue.password) {
+           Setshowerror('mandatory field missing')
+        } else {
+            await dispatch(registerUserAction(formvalue))
+            if(error) {
+               Setshowerror(error)
+            }
+        }
+    }
 
     return (
         <Modal setShowModal={setShowModal}>
             <h1 className={styles.heading}>Register to SwipTory</h1>
-            <form className={styles.form} onClick={handleSubmit}>
+            <form className={styles.form} >
                 <div className={styles.field}>
-                    <label htmlFor="email" className={styles.label}>
+                    <label htmlFor="username" className={styles.label}>
                         Username
                     </label>
                     <div className={styles.inputcontainer}>
                         <input
                             type="text"
-                            id="email"
+                            id="username"
                             placeholder="Enter username"
-                            name="email"
-                            value={formvalue.email}
+                            name="username"
+                            value={formvalue?.username}
                             className={styles.input}
                             onChange={handleChange}
                         />
@@ -67,8 +77,9 @@ const Register = ({ setShowModal }) => {
                         )}
                     </div>
                 </div>
-                <button type="submit" className={styles.button}>
-                    Register
+                <p>{showerror}</p>
+                <button type="submit" className={styles.button} onClick={handleRegister}>
+                 Register
                 </button>
             </form>
         </Modal>

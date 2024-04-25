@@ -1,0 +1,32 @@
+.container{
+    text-align: center;
+    margin: 2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.nostory {
+    color:gray;
+    margin: 0 auto;
+}
+
+.loadmore {
+    border-radius: 20px;
+    color:white;
+    background-color:red;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+}

@@ -1,17 +1,18 @@
 import React from 'react'
 import styles from "../Storycard/Story.module.css"
-const Storycard = ({img}) => {
-//   const arr=[1,2,3,4,5]
+import all from "../../assets/category/all.jpg"
+const Storycard = ({story}) => {
+  console.log(story)
   return (
     
-         <div className={styles.wrapper}>
-                <div className={styles.storycard} style=                 {{backgroundImage:`url(${img}) `}}>
-                      <div className={styles.content}>
-                          <p>Text story</p>
-                          <p>why are we texting like we all are </p>
-                      </div>
-                </div>
+          <div className={styles.container}>
+            <div className={styles.wrapper}></div>
+            <img src={story?.addstory[0]?.images} alt="" className={styles.image} />
+            <div className={styles.content}>
+                <h1 className={styles.title}>{story?.addstory[0]?.heading}</h1>
+                <p className={styles.desc}>{story?.addstory[0]?.description}</p>
             </div>
+        </div>
            
   )
 }
