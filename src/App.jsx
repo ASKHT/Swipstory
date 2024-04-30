@@ -7,6 +7,7 @@ import Header from "./components/Header/Header.jsx"
 import Usercontext from './Context/Usercontext.js';
 import Postshare from './components/postshare/Postshare.jsx';
 import Bookmark from './components/Bookmark/Bookmark.jsx';
+import Notfound from './components/pages/Notfound.jsx';
 const App = () => {
  const {Setshowmodal}=useContext(Usercontext)
   return (
@@ -30,6 +31,7 @@ const App = () => {
                 <Route path="/" element={<Mainpage />} />
                 <Route path="/bookmark" element={<Bookmark />} />
                 <Route path="/share/:postid" element={<Postshare/>} />
+                <Route path="*" element={<Notfound/>}/>
                 </Routes>
        
         {/* <Storycard/> */}

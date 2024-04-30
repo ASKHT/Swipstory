@@ -23,11 +23,11 @@
 .loadmore {
     border-radius: 20px;
     color:white;
-    background-color:red;
+    background-color:#FF7373;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    background-color: red;
+  
 }
