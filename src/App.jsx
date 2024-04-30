@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
-import Mainpage from './pages/Mainpage.jsx'
-// import {BrowserRouter,Routes,Route} from './components/BrowserRouter'
+import React, { useContext, useState } from 'react'
+import Mainpage from './showswrapper/Mainpage.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Storycard from "../src/components/Storycard/Storycard.jsx"
+import Header from "./components/Header/Header.jsx"
+import Usercontext from './Context/Usercontext.js';
+import Postshare from './components/postshare/Postshare.jsx';
+import Bookmark from './components/Bookmark/Bookmark.jsx';
 const App = () => {
-
+ const {Setshowmodal}=useContext(Usercontext)
   return (
-    <div>
+    <BrowserRouter>
        <ToastContainer
                 position="bottom-center"
                 autoClose={1000}
@@ -22,9 +25,15 @@ const App = () => {
                 theme="colored"
                 transition:Slide
             />
-        <Mainpage/>
+            <Header Setshowmodal={Setshowmodal}/>
+                <Routes>
+                <Route path="/" element={<Mainpage />} />
+                <Route path="/bookmark" element={<Bookmark />} />
+                <Route path="/share/:postid" element={<Postshare/>} />
+                </Routes>
+       
         {/* <Storycard/> */}
-    </div>
+    </BrowserRouter>
   )
 }
 

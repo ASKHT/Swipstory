@@ -1,0 +1,19 @@
+.container{
+    font-family:"DM Sans";
+}
+
+.text{
+    font-size:2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.bookmarklayout{
+    display: flex;
+    /* justify-content: center; */
+    margin-left:2rem;
+    flex-wrap: wrap;
+    gap:2rem;
+
+}

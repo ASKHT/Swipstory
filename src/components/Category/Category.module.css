@@ -5,12 +5,12 @@
   flex-direction: row;
   margin: 1rem;
   overflow-x: hidden;
-  font-family: DM Sans;
+  font-size: 1.3rem;
 }
 
 .category {
-  width: 9.4%;
-  height: 11rem;
+  width: 12%;
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;

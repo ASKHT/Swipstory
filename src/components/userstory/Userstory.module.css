@@ -1,0 +1,57 @@
+.section{
+    text-align: center;
+    margin: 2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: relative; 
+    font-family: "DM Sans"; 
+}
+
+.storyContainer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.noStory {
+    color:gray;
+    margin: 0 auto;
+}
+
+.seeMore {
+    border-radius: 20px;
+    color:white;
+    background-color:red;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color:red;
+}
+
+.editbutton {
+    position: absolute;
+    align-items: center;
+    left: 40%;
+    bottom:8px;
+    z-index: 10;
+    color: white;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap:5px;
+    color: black;
+    padding: 2px 4px;
+    border-radius: 20px;
+    /* border:1px solid black; */
+     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.editbuttonposition{
+    position: relative;
+}

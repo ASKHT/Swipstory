@@ -3,8 +3,8 @@ import Modal from "../Modal/Modal";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { registerUserAction } from "../../redux/features/AuthSlice";
-const Register = ({ setShowModal }) => {
+import { registeruserslice } from "../../redux/features/AuthSlice";
+const Register = ({ Setshowmodal }) => {
     const [password,Setshowpassword] = useState(false);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.data);
@@ -18,20 +18,20 @@ const Register = ({ setShowModal }) => {
         Setformvalue({ ...formvalue, [e.target.name]: e.target.value });
     };
 
-    const handleRegister = async (e) => {
+    const registeruser = async (e) => {
         e.preventDefault()
         if (!formvalue.username||!formvalue.password) {
            Setshowerror('mandatory field missing')
         } else {
-            await dispatch(registerUserAction(formvalue))
-            if(error) {
+            await dispatch(registeruserslice(formvalue))
+            if(showerror) {
                Setshowerror(error)
             }
         }
     }
 
     return (
-        <Modal setShowModal={setShowModal}>
+        <Modal Setshowmodal={Setshowmodal}>
             <h1 className={styles.heading}>Register to SwipTory</h1>
             <form className={styles.form} >
                 <div className={styles.field}>
@@ -78,7 +78,7 @@ const Register = ({ setShowModal }) => {
                     </div>
                 </div>
                 <p>{showerror}</p>
-                <button type="submit" className={styles.button} onClick={handleRegister}>
+                <button type="submit" className={styles.button} onClick={registeruser}>
                  Register
                 </button>
             </form>

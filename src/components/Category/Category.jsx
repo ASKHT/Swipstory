@@ -35,15 +35,15 @@ const Category = ({ handleCategoryClick, categories, selectedCategory }) => {
             key={index}
             onClick={() => handleCategoryClick(category)}
             style={{
-              backgroundImage: `linear-gradient(#00000099, #00000099),
+              backgroundImage: `linear-gradient(#00000033, #00000033),
               ${
-                category === "food"
+                category === "Food"
                   ? `url(${images.food})`
-                  : category === "travel"
+                  : category === "Travel"
                   ? `url(${images.travel})`
-                  : category === "movie"
+                  : category === "Movie"
                   ? `url(${images.movie})`
-                  : category === "education"
+                  : category === "Education"
                   ? `url(${images.education})`
                   : `url(${images.health})`
               }`,
