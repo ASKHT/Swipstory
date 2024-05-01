@@ -84,6 +84,7 @@ const [addstory, Setaddstory] = useState([
    
        <Modal Setshowmodal={Setshowmodal}>
         <div className={styles.layout} key={addstory.id} >
+            <div className={styles.tabslayout}>
               {addstory.map((slide, index) => (
                        <div key={slide._id} className={`${styles.slidenumber} ${index === activeslide ? styles.activeSlide : ''}`}
                           onClick={() => Setactiveslide(index)}>
@@ -101,19 +102,20 @@ const [addstory, Setaddstory] = useState([
 
            
                {addstory.length>=6?(""):(
-                     <div className={styles.slidenumber}>
-                <div style={{display:"flex",alignItems: "center",gap:"15px",cursor:"pointer"}}  onClick={()=>handleaddslide()}>
-                    <p>Add+</p>
-                </div>
-            </div>
+                    <div className={styles.slidenumber}>
+                        <div style={{display:"flex",alignItems: "center",gap:"15px",cursor:"pointer"}}  onClick={()=>handleaddslide()}>
+                            <p>Add+</p>
+                        </div>
+                    </div>
                )}
-            <div>
-                <p>Add up to 6 Slides</p>
+                    <div>
+                        <p>Add up to 6 Slides</p>
+                    </div>
             </div>
-        </div>
-             <div>
-                <Form handleFormChange={handleFormChange} addstory={addstory[activeslide]} category={category} Setcategory={Setcategory}/>
-             </div>
+                    <div>
+                        <Form handleFormChange={handleFormChange} addstory={addstory[activeslide]} category={category} Setcategory={Setcategory}/>
+                    </div>
+         </div>
         <div style={{display: 'flex',justifyContent: 'space-between',width:"80%"}}>
             <div style={{display: 'flex',gap:"1rem"}}>
                 <button className={styles.btn1}onClick={previousbutton}>previous</button>

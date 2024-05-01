@@ -9,7 +9,7 @@
 }
 
 .category {
-  width: 12%;
+  width: 14%;
   height: 10rem;
   display: flex;
   align-items: center;
@@ -28,5 +28,26 @@
 .container{
   display: flex;
   flex-direction: column;
-  
+}
+/* .categories::-webkit-scrollbar {
+    display: none;
+    overflow-x:scrool;
+} */
+/* .category {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+} */
+
+@media screen and (max-width: 500px) {
+  .categories {
+    width: 100vw;
+    overflow-x: scroll;
+  }
+
+  .category {
+    /* width: 10rem; */
+    height: 8rem;
+    padding: 0.2rem 3rem;
+    font-size: 1rem;
+  }
 }

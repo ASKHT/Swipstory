@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Usercontext from "../../Context/Usercontext.js";
 import { useNavigate} from "react-router-dom";
 const Viewstory = ({postid}) => {
-    console.log(postid)
+    // console.log(postid)
     const dispatch=useDispatch();
     const navigate=useNavigate()
     const userdetails = useSelector((state) => state.auth.data);
@@ -106,6 +106,7 @@ const category = [
                     className={styles.lefticon}
                     onClick={currentstoryindex === 0 ? null : backstory}
                 />
+                  <span className={styles.check1}  onClick={currentstoryindex === 0 ? null : backstory}></span>
                 <div className={styles.storyCard}>
                     <div className={styles.progressContainer}>
                         {slidepost.map((item, idx) => (
@@ -145,7 +146,9 @@ const category = [
                         </div>
                     </div>
                 </div>
+                <span className={styles.check2}  onClick={nextstory}></span>
                 <MdOutlineKeyboardArrowRight className={styles.righticon} onClick={nextstory} />
+               
             </div>
         </div>
     );

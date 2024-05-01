@@ -9,6 +9,7 @@ const Usercontextprovider = ({ children }) => {
     const [showmodal,Setshowmodal] = useState("")
     const [activepost,Setactivepost]=useState("")
     const [loggedinstate,Setloggedinstate] = useState(true)
+      const [loading, setLoading] = useState(true);
     return (
         <Usercontext.Provider
             value={{
@@ -25,7 +26,9 @@ const Usercontextprovider = ({ children }) => {
                 activepost,
                 Setactivepost,
                 loggedinstate,
-                Setloggedinstate
+                Setloggedinstate,
+                loading,
+                setLoading
             }}
         >
             {children}

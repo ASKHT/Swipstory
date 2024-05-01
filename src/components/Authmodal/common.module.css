@@ -55,7 +55,20 @@
 .button:hover{
   background-color:#5087D8;
 }
-/* .eye{
-  width:12px;
-  height:12px;
-} */
+
+
+
+@media (max-width: 768px) {
+     .field{
+        display: flex;
+        flex-direction:column;
+        gap:2px;
+     }
+     .heading{
+        font-size:1.2rem;
+     }
+     .inputcontainer{
+        width: 90%;
+     }
+    
+}

@@ -1,5 +1,5 @@
 .wrapper{
-    /* padding-left:2rem; */
+    padding-left:2rem;
     display: flex;
     flex-direction: column;
      gap:0.8rem;
@@ -22,4 +22,49 @@
     border: 2px solid gray;
     outline:none;
     resize: none;
+}
+.wrapper1{
+  display: flex;
+  justify-content: space-around;
+  width: 32rem;
+  align-items: center;
+}
+.wrapper2{
+     display: flex;
+  justify-content: space-around;
+  width: 31.5rem;
+  align-items: center;
+}
+.wrapper3{
+ display: flex;
+  justify-content: space-around;
+  width: 32.5rem;
+  align-items: center;
+}
+
+.wrapper4{
+  display: flex;
+  justify-content: space-around;
+  width: 32rem;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .input{
+    width:8rem;
+
+  }
+  .input1{
+    width:8rem;
+    height:2rem;
+  }
+.wrapper1,.wrapper2,.wrapper3,.wrapper4{
+     padding-right: 4rem;
+     width:12rem;
+    display: flex;
+    flex-direction: column;
+     text-align: left;
+     width:5rem;
+     align-items:start;
+     /* gap:0; */
+}
 }

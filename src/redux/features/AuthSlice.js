@@ -1,21 +1,25 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../constants/constant.js";
-
+import { toast } from "react-toastify";
 // auth register action
 export const registeruserslice = createAsyncThunk(
     "auth/register",
     async (payload, { rejectWithValue, getState, dispatch }) => {
         try {
             const { data } = await axios.post(`${BASE_URL}/api/v1/auth/register`, payload);
-            // console.log(payload)
+            console.log(data)
             localStorage.setItem("authenticationtoken", JSON.stringify(data.token));
             localStorage.setItem("userdetails", JSON.stringify(data.user));
             return data;
         } catch (error) {
-            if (!error.response) throw error;
-            return rejectWithValue(error);
+         if (!error.response) {
+            toast.error(error.message);
+            throw error;
         }
+        toast.error(error.response.data.message);
+        return rejectWithValue(error);
+    }
     }
 );
 
@@ -24,11 +28,17 @@ export const loginuserslice = createAsyncThunk("auth/login", async (payload, { r
     try {
         //  console.log(payload)
         const { data } = await axios.post(`${BASE_URL}/api/v1/auth/login`, payload);
+        // console.log(data)
         localStorage.setItem("authenticationtoken", JSON.stringify(data.token));
         localStorage.setItem("userdetails", JSON.stringify(data.user));
         return data;
     } catch (error) {
-        if (!error.response) throw error;
+         if (!error.response) {
+            toast.error(error.message);
+            throw error;
+        }
+        console.log(error.response.data)
+        toast.error("invalide credentials");
         return rejectWithValue(error);
     }
 });
@@ -44,7 +54,7 @@ export const getuserslice = createAsyncThunk("auth/get", async (rejectWithValue)
         localStorage.setItem("userdetails", JSON.stringify(data.user));
         return data;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         if (!error.response) {
             toast.error(error.message);
             throw error;
@@ -103,7 +113,7 @@ const authSlice = createSlice({
         });
         builder.addCase(loginuserslice.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.payload.response.data.message;
+            state.error =  action.payload.response.data.message;;
         });
 
           builder.addCase(getuserslice.pending, (state) => {
@@ -116,8 +126,8 @@ const authSlice = createSlice({
         });
         builder.addCase(getuserslice.rejected, (state, action) => {
             state.loading = false;
-            console.log(action);
-            // state.error = action.payload.response.data.message;
+            // console.log(action);
+            state.error = action.payload.response.data.message;
         });
      
     },

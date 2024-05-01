@@ -30,6 +30,7 @@
 }
 .layout{
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -104,4 +105,40 @@
     border: 2px solid gray;
     outline:none;
     resize: none;
+}
+.tabslayout{
+    display:flex;
+    gap:20px;
+}
+
+@media (max-width: 768px) {
+    .tabslayout{
+        display:flex;
+        flex-direction:column;
+        /* height:25rem; */
+        gap:20px;
+       
+    }
+    .layout{
+        display:flex;
+        flex-direction: row;
+         width: 80%;
+         justify-content: center;
+         align-items: center;
+    }
+    .btn1,.btn2{
+        display:none
+    }
+  .slidenumber{
+    width:4rem;
+    height:2.5rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor:pointer;
+    font-size: 13px;
+}
 }

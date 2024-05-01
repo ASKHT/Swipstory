@@ -47,7 +47,7 @@ const getallbookmarkposts = async () => {
                 Authorization: `Bearer ${token}`,
             },
         });
-        console.log(data)
+        // console.log(data)
         return data;
     } catch (error) {
         if (!error.response) {

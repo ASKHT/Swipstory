@@ -26,12 +26,7 @@ const Login = ({ Setshowmodal }) => {
            Setshowerror('mandatory field missing')
         } else {
             await dispatch(loginuserslice(formvalue))
-             setTimeout(() => {
                  Setshowmodal("")
-             }, 1000);
-            if(showerror) {
-               Setshowerror(error)
-            }
         }
     }
 
@@ -86,7 +81,7 @@ const Login = ({ Setshowmodal }) => {
                 <button type="submit" className={styles.button} onClick={loginuser}>
                     Login
                 </button>
-                  <p>{showerror}</p>
+                  <p style={{color:"red"}}>{showerror}</p>
             </form>
         </Modal>
     );

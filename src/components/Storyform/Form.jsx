@@ -3,7 +3,7 @@ import styles from './Form.module.css';
 const Form = ({ addstory, handleFormChange,category,Setcategory}) => {
     return (
         <div className={styles.wrapper}>
-            <div style={{ display: 'flex', justifyContent: 'space-around', width: '32rem', alignItems: 'center' }}>
+            <div className={styles.wrapper1}>
                 <label htmlFor="inputHeading">Heading:</label>
                 <input
                     type="text"
@@ -14,7 +14,7 @@ const Form = ({ addstory, handleFormChange,category,Setcategory}) => {
                     onChange={handleFormChange}
                 />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around', width: '31.5rem', alignItems: 'center' }}>
+            <div className={styles.wrapper2}>
                 <label htmlFor="inputDescription">Description:</label>
                 <textarea
                     id="inputDescription"
@@ -24,7 +24,7 @@ const Form = ({ addstory, handleFormChange,category,Setcategory}) => {
                     onChange={handleFormChange}
                 />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around', width: '32.5rem', alignItems: 'center' }}>
+            <div className={styles.wrapper3}>
                 <label htmlFor="inputImage">Image:</label>
                 <input
                     type="text"
@@ -35,7 +35,7 @@ const Form = ({ addstory, handleFormChange,category,Setcategory}) => {
                     onChange={handleFormChange}
                 />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around', width: '32rem', alignItems: 'center' }}>
+            <div className={styles.wrapper4}>
                 <p>Category</p>
                 <select className={styles.input} name="category" value={category}   onChange={(e) => Setcategory(e.target.value)}>
                     <option value="SelectCategory">Select Category</option>
