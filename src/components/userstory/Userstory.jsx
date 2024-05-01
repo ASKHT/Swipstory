@@ -7,7 +7,7 @@ import { getuserposts } from "../../api/storyapi";
 import { useSelector } from "react-redux";
 
 const Userstory = ({ Setshowmodal }) => {
-    const { makestory, Setpostdata, Setmakestory } = useContext(Usercontext);
+    const { makestory, Setpostdata, Setmakestory,loading,setLoading } = useContext(Usercontext);
     const [userstory, Setuserstory] = useState([]);
     const userdetails = useSelector((state) => state.auth.data);
     const [visibleUserStories, setVisibleUserStories] = useState(4); // Number of user stories to display initially
@@ -23,6 +23,7 @@ const Userstory = ({ Setshowmodal }) => {
             try {
                 const res = await getuserposts();
                 Setuserstory(res?.posts);
+                setLoading(false);
             } catch (error) {
                 console.log(error);
             }
@@ -38,23 +39,26 @@ const Userstory = ({ Setshowmodal }) => {
     return (
         <div className={styles.section}>
             <h2>Your Stories</h2>
-            <div className={styles.storyContainer}>
-                {userstory?.length > 0 ? (
-                    userstory.slice(0, visibleUserStories).map((post) => (
-                        <div key={post._id} className={styles.editbuttonposition}>
-                            <Storycard post={post} />
-                            <div className={styles.editbutton} onClick={() => Editpost(post)}>
-                                <FaRegEdit style={{fontSize:"1.5rem"}}/>
-                                <p>Edit</p>
-                               
+            {loading ? ( // Show loading spinner if data is still loading
+                <div className={styles.loader}></div>
+            ) : (
+                <div className={styles.storyContainer}>
+                    {userstory?.length > 0 ? (
+                        userstory.slice(0, visibleUserStories).map((post) => (
+                            <div key={post._id} className={styles.editbuttonposition}>
+                                <Storycard post={post} />
+                                <div className={styles.editbutton} onClick={() => editPost(post)}>
+                                    <FaRegEdit style={{fontSize:"1.5rem"}}/>
+                                    <p>Edit</p>
+                                </div>
                             </div>
-                        </div>
-                    ))
-                ) : (
-                    <p className={styles.noStory}>No Stories Available</p>
-                )}
-            </div>
-            {userstory?.length > visibleUserStories && ( // Show "See More" button only if there are more user stories
+                        ))
+                    ) : (
+                        <p className={styles.noStory}>No Stories Available</p>
+                    )}
+                </div>
+            )}
+            {userstory?.length > visibleUserStories && (
                 <button className={styles.seeMore} onClick={handleSeeMore}>
                     See More
                 </button>

@@ -11,13 +11,14 @@ import Storycard from '../Storycard/Storycard.jsx'
 import { useSelector } from 'react-redux'
 const Bookmark = () => {
     const [bookmarkdata,Setbookmarkdata]=useState([]);
-    const {showmodal,Setshowmodal,Setviewstory,viewstory,activepost}=useContext(Usercontext)
+    const {showmodal,Setshowmodal,Setviewstory,viewstory,activepost,loading,setLoading}=useContext(Usercontext)
     const userdetails=useSelector((state)=>state.auth.data)
   useEffect(() => {
     const fetchBookmarks = async () => {
         try {
             const res = await getallbookmarkposts();
             Setbookmarkdata(res.bookmarks);
+            setLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -30,21 +31,24 @@ const Bookmark = () => {
 }, [userdetails]);
   return (
     <div className={styles.container}>
-           <div className={styles.text}>
-              <p>Your Bookmarks</p>
-           </div>
-           <div className={styles.bookmarklayout}>
-                   {
-                    bookmarkdata.map((item,index)=>(
-                        <Storycard key={item._id} post={item}/>
-                    ))
-                   }
-           </div>
+            <div className={styles.text}>
+                <p>Your Bookmarks</p>
+            </div>
+            {loading ? ( // Show loading spinner if data is still loading
+                <div className={styles.loader}></div>
+            ) : (
+                <div className={styles.bookmarklayout}>
+                    {bookmarkdata.map((item, index) => (
+                        <Storycard key={item._id} post={item} />
+                    ))}
+                </div>
+            )}
+            {/* Other modals */}
             {showmodal === "register" && <Register />}
             {showmodal === "login" && <Login />}
             {showmodal === "addstory" && <Storyform Setshowmodal={Setshowmodal} />}
-            {viewstory === true && <Viewstory Setviewstory={Setviewstory} postid={activepost}/>}
-    </div>
+            {viewstory && <Viewstory Setviewstory={Setviewstory} postid={activepost} />}
+        </div>
   )
 }
 
